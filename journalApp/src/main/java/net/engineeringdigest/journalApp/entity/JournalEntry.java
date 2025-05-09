@@ -8,13 +8,27 @@ import javax.persistence.*;
 @Table(name = "journalentry")
 public class JournalEntry {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
      private long id;
 
      private String title;
 
      @Column(name = "journalcontent")
      private String content;
+
+     @ManyToOne
+     @JoinColumn(name = "user_id", nullable = false)
+     private User user_of_journal;
+
+    public JournalEntry() {
+    }
+
+    public JournalEntry(long id, String title, String content, User user_of_journal) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.user_of_journal = user_of_journal;
+    }
 
     public long getId() {
         return id;
@@ -38,5 +52,13 @@ public class JournalEntry {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public User getUser_of_journal() {
+        return user_of_journal;
+    }
+
+    public void setUser_of_journal(User user_of_journal) {
+        this.user_of_journal = user_of_journal;
     }
 }
