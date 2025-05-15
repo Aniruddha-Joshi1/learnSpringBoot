@@ -5,20 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="687d6199-e4cf-46af-a61e-470cc058df51" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/config/SpringSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/controller/PublicController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/service/UserDetailsServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/controller/JournalEntryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/controller/JournalEntryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/entity/JournalEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/entity/JournalEntry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/repository/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/repository/UserRepositoryInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/service/JournalEntryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/service/JournalEntryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/repository/UserRepositoryInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/repository/UserRepositoryInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/controller/JournalEntryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/controller/JournalEntryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/entity/JournalEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/entity/JournalEntry.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/repository/UserInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/service/JournalEntryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/service/JournalEntryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/repository/UserRepositoryInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/repository/UserRepositoryInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/net/engineeringdigest/journalApp/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,21 +61,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.JournalApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.JournalApp.executor": "Debug",
+    "Application.JournalApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "spring__security__basics",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
+    <configuration name="JournalApp" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="net.engineeringdigest.journalApp.JournalApplication" />
+      <module name="journalApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -95,5 +107,26 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/controller/UserController.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/service/UserService.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/net/engineeringdigest/journalApp/controller/UserController.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

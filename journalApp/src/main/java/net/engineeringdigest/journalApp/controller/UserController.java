@@ -8,68 +8,60 @@ import net.engineeringdigest.journalApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// Authenticated endpoint
 @RestController
 @RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/test")
-    public String test(){
-        return "test";
-    }
+    // A particular user should not be able to access all users api, should depend on the role
+//    @GetMapping("/allUsers")
+//    public ResponseEntity<ApiResponse<List<User>>> getAllUsers() {
+//        ApiResponse<List<User>> resp = new ApiResponse<>();
+//        resp.setData(userService.getAllUsers());
+//        resp.setMessage("Fetched all the journal entries");
+//        return ResponseEntity.status(HttpStatus.OK).body(resp);
+//    }
 
-    @GetMapping("/allUsers")
-    public ResponseEntity<ApiResponse<List<User>>> getAllUsers() {
-        ApiResponse<List<User>> resp = new ApiResponse<>();
-        resp.setData(userService.getAllUsers());
-        resp.setMessage("Fetched all the journal entries");
-        return ResponseEntity.status(HttpStatus.OK).body(resp);
-    }
-
-    @PostMapping
-    public ResponseEntity<ApiResponse<User>> addUser(@RequestBody User user){
+    @GetMapping("/getUserDetails")
+    public ResponseEntity<ApiResponse<User>> getUserById(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
         ApiResponse<User> resp = new ApiResponse<>();
-        userService.saveUser(user);
-        resp.setData(user);
-        resp.setMessage("Entry added successfully");
-        return ResponseEntity.status(HttpStatus.OK).body(resp);
-    }
-
-    @GetMapping("/id/{myId}")
-    public ResponseEntity<ApiResponse<User>> getUserById(@PathVariable Long myId){
-        ApiResponse<User> resp = new ApiResponse<>();
-        User neededEntry = userService.getUserById(myId);
+        User neededEntry = userService.getByUserName(username);
         resp.setData(neededEntry);
-        resp.setMessage(String.format("User with id %d retrieved successfully", myId));
+        resp.setMessage(String.format("%s data, retrieved successfully", username));
         return ResponseEntity.status(HttpStatus.OK).body(resp);
     }
 
-    @DeleteMapping("/id/{myId}")
-    public ResponseEntity<ApiResponse<String>> deleteUserById(@PathVariable Long myId){
+    @DeleteMapping("/deleteUser")
+    public ResponseEntity<ApiResponse<String>> deleteUserById(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
         ApiResponse<String> resp = new ApiResponse<>();
-        userService.deleteUserById(myId);
-        resp.setMessage(String.format("User with id %d, deleted successfully", myId));
+        userService.deleteByUsername(username);
+        resp.setMessage(String.format("%s deleted successfully", username));
         return ResponseEntity.status(HttpStatus.OK).body(resp);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<User>> updateUser(@RequestBody User user, @PathVariable long id){
+    @PutMapping("/updateUser")
+    public ResponseEntity<ApiResponse<User>> updateUser(@RequestBody User user){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
         ApiResponse<User> resp = new ApiResponse<>();
-        User userExists = userService.getByUserName(user.getUsername());
-        if(userExists != null) {
-            resp.setMessage("Username already exists, choose some other username");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resp);
-        }
-        User userInDb = userService.getUserById(id);
+        User userInDb = userService.getByUserName(username);
         if(userInDb != null){
             userInDb.setUsername(user.getUsername());
             userInDb.setPassword(user.getPassword());
-            userService.saveUser(userInDb);
+            userService.saveNewUser(userInDb);
             resp.setMessage("User updated successfully");
             resp.setData(userInDb);
             return ResponseEntity.status(HttpStatus.OK).body(resp);
@@ -77,18 +69,4 @@ public class UserController {
         resp.setMessage("User not found");
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resp);
     }
-
-//    @PutMapping("/id/{myId}")
-//    public ResponseEntity<ApiResponse<JournalEntry>> updateEntryById(@PathVariable Long myId, @RequestBody JournalEntry myEntry){
-//        ApiResponse<JournalEntry> resp = new ApiResponse<>();
-//        JournalEntry updatedJournalEntry = journalEntryService.updateJournalEntry(myId, myEntry);
-//        if(updatedJournalEntry == null){
-//            resp.setMessage("This updation is not possible since the entry does not exist");
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resp);
-//        } else{
-//            resp.setMessage(String.format("Updated the journal entry with title - {}, successfully", updatedJournalEntry.getTitle()));
-//            resp.setData(updatedJournalEntry);
-//            return ResponseEntity.status(HttpStatus.OK).body(resp);
-//        }
-//    }
 }
