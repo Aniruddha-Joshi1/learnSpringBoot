@@ -1,6 +1,10 @@
 package net.engineeringdigest.journalApp.entity;
 
+import com.sun.istack.NotNull;
+import lombok.NonNull;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,14 +14,15 @@ public class User {
     @Column(name = "user_id")
     private long id;
 
-    @Column(name="username")
+    @Column(name="username", unique = true, nullable = false)
     private String username;
 
-    @Column(name="password")
+    @NotNull
+    @Column(name="password", nullable = false)
     private String password;
 
     @OneToMany(mappedBy = "user_of_journal")
-    private List<JournalEntry> journalEntries;
+    private List<JournalEntry> journalEntries = new ArrayList<>();
 
     public User(){
 

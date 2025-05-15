@@ -1,5 +1,7 @@
 package net.engineeringdigest.journalApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 // Entity annotation => class to be mapped to a table
@@ -18,6 +20,7 @@ public class JournalEntry {
 
      @ManyToOne
      @JoinColumn(name = "user_id", nullable = false)
+     @JsonIgnore
      private User user_of_journal;
 
     public JournalEntry() {
