@@ -25,7 +25,6 @@ public class JournalEntryService {
             journalEntry.setUser_of_journal(user);
             // To save the journal entry with the user
             JournalEntry savedEntry = journalEntryRepositoryInterface.save(journalEntry);
-            user.setUsername(null);
             user.getJournalEntries().add(savedEntry);
             // To save the updated journal entries in User DB
             userService.saveUser(user);
@@ -47,7 +46,7 @@ public class JournalEntryService {
         return journalEntries;
     }
 
-    public JournalEntry updateJournalEntry(long id, JournalEntry newJournalEntry){
+    public JournalEntry updateJournalEntry(Long id, JournalEntry newJournalEntry){
         JournalEntry oldEntry = journalEntryRepositoryInterface.findById(id).orElse(null);
         if(oldEntry != null){
             oldEntry.setContent(newJournalEntry.getContent());

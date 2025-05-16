@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -24,7 +23,7 @@ public class UserService {
         userRepositoryInterface.save(user);
     }
 
-    public void saveNewUser(User user){
+    public void savePasswordEncrypted(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         List<String> roles = new ArrayList<>();
         roles.add("USER");

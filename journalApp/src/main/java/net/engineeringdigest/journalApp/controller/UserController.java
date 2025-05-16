@@ -38,7 +38,7 @@ public class UserController {
         ApiResponse<User> resp = new ApiResponse<>();
         User neededEntry = userService.getByUserName(username);
         resp.setData(neededEntry);
-        resp.setMessage(String.format("%s data, retrieved successfully", username));
+        resp.setMessage(String.format("%s's data, retrieved successfully", username));
         return ResponseEntity.status(HttpStatus.OK).body(resp);
     }
 
@@ -61,7 +61,7 @@ public class UserController {
         if(userInDb != null){
             userInDb.setUsername(user.getUsername());
             userInDb.setPassword(user.getPassword());
-            userService.saveNewUser(userInDb);
+            userService.savePasswordEncrypted(userInDb);
             resp.setMessage("User updated successfully");
             resp.setData(userInDb);
             return ResponseEntity.status(HttpStatus.OK).body(resp);

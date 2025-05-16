@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class JournalEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-     private long id;
+     private Long id;
 
      private String title;
 
