@@ -1,0 +1,21 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Build directories
+/target/
+/build/
+
+# Maven
+.mvn/
+!**/src/main/**/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -49,5 +50,11 @@ public class UserService {
 
     public User getByUserName(String userName){
         return userRepositoryInterface.findByUsername(userName);
+    }
+
+    public User createAdminUser(User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(Arrays.asList("USER", "ADMIN"));
+        return userRepositoryInterface.save(user);
     }
 }

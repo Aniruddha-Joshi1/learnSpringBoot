@@ -22,15 +22,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // A particular user should not be able to access all users api, should depend on the role
-//    @GetMapping("/allUsers")
-//    public ResponseEntity<ApiResponse<List<User>>> getAllUsers() {
-//        ApiResponse<List<User>> resp = new ApiResponse<>();
-//        resp.setData(userService.getAllUsers());
-//        resp.setMessage("Fetched all the journal entries");
-//        return ResponseEntity.status(HttpStatus.OK).body(resp);
-//    }
-
     @GetMapping("/getUserDetails")
     public ResponseEntity<ApiResponse<User>> getUserById(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
